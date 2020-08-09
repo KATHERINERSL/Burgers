@@ -34,5 +34,9 @@ router.start();
 
 // Start the server to listen to the port
 app.listen(PORT, () => {
-  console.log('Server started listening on port ' + PORT);
+  console.log(
+    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    PORT,
+    PORT
+  );
 });
