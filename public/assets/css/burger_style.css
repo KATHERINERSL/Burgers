@@ -1,23 +1,39 @@
-
-/* CSS for the main page */
-
-body {
-    background-image: linear-gradient(to bottom right, yellow, darkorange);
-    height: 100vh;
-    font-size: 1.2em;
-  }
-  
-  .title {
-    color: brown;
-  }
-  
-  .burger-img {
-    width: 10%;
-    height: 10%;
-  }
-  
-  #right-col {
-    font-size: 0.9em;
-    font-style: italic;
-    opacity: 0.75;
-  }
+.container {
+  background-color: rgb(217, 238, 217);
+}
+.jumbotron {
+  background-image: url("/Burgers/public/assets/img/Front.jpg");
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-top: 50px;
+  padding-top: 10px;
+  border: 20px solid rgb(217, 238, 217);
+}
+.jumbotron > h1 {
+  font-family: 'Creepster', cursive;
+  text-align: left;
+  color: yellow;
+}
+#newburger {
+  border-radius: 5px;
+}
+#color-override {
+  color: #fff;
+}
+#lefthead {
+  background-color: #5cb85c;
+  color: white;
+  text-align: center;
+  font-size: 1.2em;
+}
+#eatbutton, #trashbutton {
+  float: right;
+}
+#righthead {
+  background-color: #f0ad4e;
+  color: white;
+  text-align: center;
+  font-size: 1.2em;
+}
