@@ -16,9 +16,9 @@ In this app, a burger logger is created, user will "create" and "eat" burgers us
 * Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
 * Your app will store every burger in a database, whether devoured or not.
 ## Screenshots
-![Eat Da Burger App](https://github.com/slsmi285/Eat-Da-Burger/blob/master/public/assets/images/BrowserApp.PNG)
-![Terminal Logs](https://github.com/slsmi285/Eat-Da-Burger/blob/master/public/assets/images/terminal%20entry%20logs.PNG)
-![Sequel DB](https://github.com/slsmi285/Eat-Da-Burger/blob/master/public/assets/images/Sequel.PNG)
+![Eat Da Burger App](https://github.com/KATHERINERSL/Burgers/blob/master/public/assets/images/BrowserPic.PNG)
+![Terminal Logs](https://github.com/KATHERINERSL/Burgers/blob/master/public/assets/images/TerminalLogs.PNG)
+![Sequel DB](https://github.com/KATHERINERSL/Burgers/blob/master/public/assets/images/SQL_DB.PNG)
 [Heroku Link]()
 #### Directory structure
 All the recommended files and directories from the steps above should look like the following structure:
