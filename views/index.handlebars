@@ -1,63 +1,62 @@
-{{!-- Setup the index.handlebars to have the template that Handlebars can render onto. --}}
-<div class="text-center">
-  <div class="container">
-    <div class="jumbotron">
-      <!--<img src="assets/image/burger.png" class="img-fluid rounded burger-img mt-1">-->
-      <h1 class="display-5 title">Eat-Da-Burger!</h1>
- </div>
-      <panel>
-        {{!added method, get, and action}}
-        <form class="create-form" method="GET" action="/">
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-12">
-                {{!-- Add a burger --}}
-                <p class="lead">Enter a burger name you want to eat</p>
-                <form id="add-burger">
-                  <div class="form-group mx-auto" style="width: 35%">
-                    <textarea type="text" class="form-control form-control-md" name="bname" id="burger"></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-danger">Add Your Burger</button>
-                </form>
-              </div>
-            </div>
-        </form>
-      </panel>
+<div class="container">
+  <div class="jumbotron">
     <div class="row">
-      {{!-- Left Side for to-be-devoured burgers --}}
-      <div class="col-sm-6">
-        <div class="panel panel-default">
-          <div class="panel-heading" id="lefthead"><strong>New Burgers</strong></div>
-          <div class="panel-body">
-            <ul>
-              {{#each burgers}}
-              {{#unless devoured}}
-              <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
-              <button type="button" class="eatburger btn btn-warning" id="eatbutton" data-id="{{this.id}}"
-                data-newDevoured="{{devour}}"><span class="fa fa-cutlery"></span></button>
-              <hr>
-              {{/unless}}
-              {{/each}}
-            </ul>
-          </div>
-        </div>
-      </div>
-      {{!-- Right Side for not yet devoured ones --}}
-      <div class="col-sm-6">
-        <div class="panel panel-default">
-          <div class="panel-heading" id="righthead"><strong>Devoured Burgers</strong></div>
-          <div class="panel-body">
-            <ul>
-              {{#each burgers}}
-              {{#if devoured}}
-              <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
-              <button type="button" class="trashburger btn btn-danger" id="trashbutton" data-id="{{this.id}}"
-                data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
-              <hr>
-              {{/if}}
-              {{/each}}
-            </ul>
-          </div>
-        </div>
+      <div class="col-12">
+        <h1 class="titleText">Eat Da Burger</h1>
       </div>
     </div>
+  </div>
+<div class="row">
+  <div class="col-12 addBurger">
+    <h3 class="miniHeading">Add a Burger To Your List!</h3>
+    <div class="burgtype">
+      <form class="create-update-form" action="/insertOne" method="POST">
+        <div class="form-group">
+          <textarea type="text" name="burger_name"></textarea><br>
+          <button class="btn btn-warning" type="submit" style="background-color: rgb(156, 102, 32);">add da burger!
+          </button>
+        </div>
+    </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 burgers">
+    <h3 class="miniHeading">Your Burger List!</h3>
+    <br>
+    <ul>
+      {{#each burgers}}
+      {{#unless this.devoured}}
+      <div class="showBurger">
+        <p>
+          {{this.burger_name}}</p>
+        <form action="/updateOne/{{this.id}}" method="POST">
+          <input type="hidden" name="devoured" value="1">
+          <button type="submit" class="btn" style="background-color: #5DBCD2 ;">eat da burger!</button>
+        </form>
+        <br>
+      </div>
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+  <div class="col-6 devoured">
+    <h3 class="miniHeading">Burgers Devoured!</h3>
+    <br>
+    <ul>
+      {{#each burgers}}
+      {{#if this.devoured}}
+      <div class="devourBurger">
+        <p>
+          {{this.burger_name}}</p>
+        <form action="/deleteOne/{{this.id}}" method="POST">
+          <button type="submit" class="btn" style="background-color: #5DBCD2 ;">delete da burger! </button>
+        </form>
+        {{/if}}
+        {{/each}}
+    </ul>
+  </div>
+</div>
+</div>
+<hr>
+</div>

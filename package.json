@@ -1,18 +1,29 @@
 {
   "name": "mischandlebars",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this assignment, you'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KATHERINERSL/Burgers.git"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/KATHERINERSL/Burgers/issues"
+  },
+  "homepage": "https://github.com/KATHERINERSL/Burgers#readme"
 }

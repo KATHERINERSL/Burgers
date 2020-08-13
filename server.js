@@ -1,42 +1,38 @@
-/*
--------------------------------------------------------------------------------
-A main app server javascript for the burger app
--------------------------------------------------------------------------------
-*/
-'use strict';
+//require express
+var express = require("express");   
+//require express-handlebars
+var exphbs = require("express-handlebars");    
+//require body-parser                                
+var bodyParser = require("body-parser");                            
+//require burgers_controllers
+var routes = require("./controllers/burgers_controller.js");      
+//express call using app
+var app = express();                       
+//local host port 3000                       
+var PORT = process.env.PORT || 3000;                              
 
-var path = require('path');
-var PORT = process.env.PORT || 3000;
+//public folder
+app.use(express.static("public"));                                
 
-// Load express
-var express = require('express');
-var exphbs  = require('express-handlebars');
+//parses JSON
+app.use(bodyParser.json());                                         
+app.use(bodyParser.urlencoded({ extended: true }));                 
 
-var app = express();
+//handlebars run using main for content
+app.engine("handlebars", exphbs({                                 
+    defaultLayout: "main"                                        
+}));
 
-// Load router module(s) and initialize
-var Router = require('./controllers/burgers_controller');
-var router = new Router(app);
+app.set("view engine", "handlebars");                               
 
-// Make use of the body-parsers
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-// Set static directory reference path
-app.use(express.static(path.join(__dirname, 'public'))); 
-
-// Handlebars middleware
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
-
-// Start routers
-router.start();
+//calls api routes
+app.use(routes);    
 
 // Start the server to listen to the port
 app.listen(PORT, () => {
-  console.log(
-    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-    PORT,
-    PORT
-  );
-});
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });

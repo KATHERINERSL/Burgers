@@ -1,45 +1,33 @@
-/*
--------------------------------------------------------------------------------
-A model for the burger app data
--------------------------------------------------------------------------------
-*/
+//require ORM
+var orm = require("../config/orm.js");                                                                 
 
-'use strict';
+//burger variable and callback function 
+var burger = {
+    selectAll: function(callback) {                                         
+        orm.selectAll("burgers", function(res) {                            
+            callback(res);
+        });
+    },  
 
-var orm = require('../config/orm');
+    //insert function
+    insertOne: function (cheese, callback) {
+        orm.insertOne("burgers", "burger_name", cheese, function (buns) {
+            console.log("burgerJS cheese: ", cheese, "buns: ", buns);
+            callback(buns);
+        });
+    },
+    //update function
+    updateOne: function(colVal, id, cb) {
+        orm.updateOne(colVal, id, function(res) {
+            cb(res);
+        });
+    },
+    //delete function
+    deleteOne: function(id, callback) {
+        orm.deleteOne(id, function(res) {
+            callback(res);
+        });
+    }
+};
 
-class Burger {
-  constructor(database = orm) {
-    this.db = database;
-  }
-  
-  //
-  // Show all burgers currently in the database
-  //
-  list() {
-    return this.db.selectAll();
-  }
-  
-  //
-  // Add a new burger into the database
-  //
-  add(burger) {
-    return this.db.insertOne(burger);
-  }
-  
-  //
-  // Devour a burger with the "id"
-  //
-  devour(id, data = { devoured: true }) {
-    return this.db.updateOne(id, data);
-  }
-  
-  //
-  // Delete a burger with the "id"
-  //
-  delete(id, data = {}) {
-    return this.db.deleteOne(id, data);
-  }
-}
-
-module.exports = new Burger();
+module.exports = burger;
