@@ -19,7 +19,7 @@ In this app, a burger logger is created, user will "create" and "eat" burgers us
 ![Eat Da Burger App](https://github.com/KATHERINERSL/Burgers/blob/master/public/assets/images/BrowserPic.PNG)
 ![Terminal Logs](https://github.com/KATHERINERSL/Burgers/blob/master/public/assets/images/TerminalLogs.PNG)
 ![Sequel DB](https://github.com/KATHERINERSL/Burgers/blob/master/public/assets/images/SQL_DB.PNG)
-[Heroku Link]()
+[Heroku Link](https://sheltered-cove-87156.herokuapp.com/)
 #### Directory structure
 All the recommended files and directories from the steps above should look like the following structure:
 ```
